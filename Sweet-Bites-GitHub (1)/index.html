@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Bites | Alta Repostería Artesanal</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Estilos de Sweet Bites -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Funcionalidad de Sweet Bites -->
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <!-- Header & Interactive Navigation Tabs -->
+    <header>
+        <div class="brand" onclick="switchTab('home')">Sweet <span>Bites</span></div>
+        <ul class="nav-links">
+            <li><button onclick="switchTab('home')" id="btn-home" class="active">Inicio</button></li>
+            <li><button onclick="switchTab('menu')" id="btn-menu">Menú & Catálogo</button></li>
+            <li><button onclick="switchTab('about')" id="btn-about">Nuestra Esencia</button></li>
+            <li><button onclick="switchTab('contact')" id="btn-contact">Contacto</button></li>
+        </ul>
+        <button class="cart-btn" onclick="toggleCart()">
+            <i class="fa-solid fa-bag-shopping"></i> Pedido <span class="cart-count" id="cartCount">0</span>
+        </button>
+    </header>
+
+    <!-- ================= TAB 1: INICIO ================= -->
+    <section id="home" class="tab-content active">
+        <div class="hero">
+            <span class="badge-exclusive">Alta Repostería Artesanal</span>
+            <h1>El placer hecho postre</h1>
+            <p>Descubre nuestra especialidad estrella, el Crème Brûlée, y un catálogo exclusivo diseñado para despertar tus sentidos.</p>
+            <button class="btn-primary-hero" onclick="switchTab('menu')">Explorar Menú Completo</button>
+        </div>
+        <div class="container">
+            <h2 class="section-title">Nuestra Creación Insignia</h2>
+            <p class="section-subtitle">El favorito absoluto de nuestros clientes más exigentes</p>
+            <div class="grid" id="featuredGrid">
+                <!-- Inyectado dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= TAB 2: MENÚ & CATÁLOGO ================= -->
+    <section id="menu" class="tab-content">
+        <div class="container">
+            <h2 class="section-title">Catálogo de Postres Exclusivos</h2>
+            <p class="section-subtitle">Selecciona tus favoritos y arma tu pedido personalizado al instante</p>
+
+            <div class="category-filters">
+                <button class="filter-btn active" onclick="filterMenu('all', this)">Todos</button>
+                <button class="filter-btn" onclick="filterMenu('Destacado', this)">Estrella</button>
+                <button class="filter-btn" onclick="filterMenu('Especialidad', this)">Especialidades</button>
+                <button class="filter-btn" onclick="filterMenu('Gourmet', this)">Gourmet</button>
+                <button class="filter-btn" onclick="filterMenu('Frutal', this)">Frutales</button>
+            </div>
+
+            <div class="grid" id="productGrid">
+                <!-- Inyectado dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= TAB 3: NUESTRA ESENCIA (INCLUYE EQUIPO) ================= -->
+    <section id="about" class="tab-content">
+        <div class="container">
+            <div class="content-box" style="max-width: 1200px;">
+                <h2>El Arte de Endulzar Cada Momento</h2>
+                <p>En <strong>Sweet Bites</strong>, cada postre es concebido bajo rigurosos estándares de alta cocina. Combinamos técnicas tradicionales francesas con ingredientes de origen único, como vainilla Bourbon de Madagascar y chocolates selectos.</p>
+                <p>Nuestra misión no es solo vender un postre, sino regalarte una experiencia memorable que convierta lo ordinario en extraordinario.</p>
+
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 2.5rem 0;">
+
+                <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Nuestro Equipo Fundador y Culinario</h2>
+                <p style="color: #666; margin-bottom: 2rem;">Conoce a los 8 profesionales apasionados que hacen posible la magia y excelencia de Sweet Bites.</p>
+
+                <div class="team-grid">
+                    <!-- Integrante 1 -->
+                    <div class="team-card">
+                        <img src="imagenes/isabella-vance.svg" data-photo="imagenes/isabella-vance.jpg" data-remote="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=500&q=80" alt="Isabella Vance" class="team-img">
+                        <div class="team-info">
+                            <span class="team-role">Chef Ejecutiva</span>
+                            <h3 class="team-name">Isabella Vance</h3>
+                            <p class="team-desc">Maestra repostera con formación en París y especialidad en alta cocina dulce.</p>
+                            <p class="team-bio">"La perfección radica en el balance exacto entre temperatura, técnica y amor por el detalle."</p>
+                            <div class="team-contribution"><strong>Aporte:</strong> Creación de la receta insigne del Crème Brûlée y curaduría de ingredientes de origen.</div>
+                        </div>
+                    </div>
+
+                    <!-- Integrante 2 -->
+                    <div class="team-card">
+                        <img src="imagenes/mateo-almonte.svg" data-photo="imagenes/mateo-almonte.jpg" data-remote="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80" alt="Mateo Almonte" class="team-img">
+                        <div class="team-info">
+                            <span class="team-role">Director de Mercadeo</span>
+                            <h3 class="team-name">Mateo Almonte</h3>
+                            <p class="team-desc">Especialista en psicología del consumidor y estrategias culinarias sensoriales.</p>
+                            <p class="team-bio">"El apetito comienza en la mente a través de la narrativa y la estética visual."</p>
+                            <div class="team-contribution"><strong>Aporte:</strong> Arquitectura de descripciones sensoriales del menú y optimización de la experiencia de usuario.</div>
+                        </div>
+                    </div>
+
+                    <!-- Integrante 3 -->
+                    <div class="team-card">
+                        <img src="imagenes/sofia-laurent.svg" data-photo="imagenes/sofia-laurent.jpg" data-remote="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80" alt="Sofía Laurent" class="team-img">
+                        <div class="team-info">
+                            <span class="team-role">Maestra Pastelera</span>
+                            <h3 class="team-name">Sofía Laurent</h3>
+                            <p class="team-desc">Experta en pastelería francesa y texturas horneadas de precisión milimétrica.</p>
+                            <p class="team-bio">"Cada capa cuenta una historia de paciencia y dedicación artesanal."</p>
+                            <div class="team-contribution"><strong>Aporte:</strong> Desarrollo y estandarización de las tartas de queso vascas y macarons franceses.</div>
+                        </div>
+                    </div>
+
+                    <!-- Integrante 4 -->
+                    <div class="team-card">
+                        <img src="imagenes/alejandro-morel.svg" data-photo="imagenes/alejandro-morel.jpg" data-remote="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80" alt="Alejandro Morel" class="team-img">
+                        <div class="team-info">
+                            <span class="team-role">Arquitecto Digital</span>
+                            <h3 class="team-name">Alejandro Morel</h3>
+                            <p class="team-desc">Ingeniero en tecnología y ciberseguridad aplicada a plataformas digitales.</p>
+                            <p class="team-bio">"La seguridad y la fluidez tecnológica son los cimientos de la confianza moderna."</p>
+                            <div class="team-contribution"><strong>Aporte:</strong> Programación y unificación técnica de la plataforma web interactiva todo en uno.</div>
+                        </div>
+                    </div>
+
+                    <!-- Integrante 5 -->
+                    <div class="team-card">
+                        <img src="imagenes/camila-rossi.svg" data-photo="imagenes/camila-rossi.jpg" data-remote="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=80" alt="Camila Rossi" class="team-img">
+                        <div class="team-info">
+                            <span class="team-role">Innovación de Menú</span>
+                            <h3 class="team-name">Camila Rossi</h3>
+                            <p class="team-desc">Investigadora de tendencias gastronómicas contemporáneas y repostería fusión.</p>
+                            <p class="team-bio">"Innovar en la repostería es atreverse a explorar nuevas emociones en el paladar."</p>
+                            <div class="team-contribution"><strong>Aporte:</strong> Incorporación de la línea gourmet de chocolate oscuro con corazón fundente y postres frutales.</div>
+                        </div>
+                    </div>
+
+                    <!-- Integrante 6 -->
+                    <div class="team-card">
+                        <img src="imagenes/gabriel-vargas.svg" data-photo="imagenes/gabriel-vargas.jpg" data-remote="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=500&q=80" alt="Gabriel Vargas" class="team-img">
+                        <div class="team-info">
+                            <span class="team-role">Control de Calidad</span>
+                            <h3 class="team-name">Gabriel Vargas</h3>
+                            <p class="team-desc">Auditor de procesos culinarios y estándares de frescura internacional.</p>
+                            <p class="team-bio">"La excelencia no es un acto, es un hábito constante en cada producción."</p>
+                            <div class="team-contribution"><strong>Aporte:</strong> Implementación del protocolo de frescura diaria y supervisión de empaques seguros.</div>
+                        </div>
+                    </div>
+
+                    <!-- Integrante 7 -->
+                    <div class="team-card">
+                        <img src="imagenes/valeria-cruz.svg" data-photo="imagenes/valeria-cruz.jpg" data-remote="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=80" alt="Valeria Cruz" class="team-img">
+                        <div class="team-info">
+                            <span class="team-role">Experiencia del Cliente</span>
+                            <h3 class="team-name">Valeria Cruz</h3>
+                            <p class="team-desc">Experta en atención personalizada y satisfacción del consumidor de alta gama.</p>
+                            <p class="team-bio">"Una sonrisa y un servicio impecable completan la dulzura de un buen postre."</p>
+                            <div class="team-contribution"><strong>Aporte:</strong> Diseño del sistema de flujo de pedidos rápidos y atención personalizada al cliente.</div>
+                        </div>
+                    </div>
+
+                    <!-- Integrante 8 -->
+                    <div class="team-card">
+                        <img src="imagenes/lucas-pimentel.svg" data-photo="imagenes/lucas-pimentel.jpg" data-remote="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=500&q=80" alt="Lucas Pimentel" class="team-img">
+                        <div class="team-info">
+                            <span class="team-role">Director Creativo</span>
+                            <h3 class="team-name">Lucas Pimentel</h3>
+                            <p class="team-desc">Artista visual especializado en iluminación y escenografía de alimentos.</p>
+                            <p class="team-bio">"Capturar la textura perfecta es lograr que el espectador pueda saborear con los ojos."</p>
+                            <div class="team-contribution"><strong>Aporte:</strong> Dirección visual, selección de fotografía gastronómica de alta fidelidad y armonía estética.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-primary-hero" style="margin-top: 2.5rem;" onclick="switchTab('menu')">Ver el Menú Ahora</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= TAB 4: CONTACTO ================= -->
+    <section id="contact" class="tab-content">
+        <div class="container">
+            <div class="content-box">
+                <h2>Comunícate con Sweet Bites</h2>
+                <p>¿Tienes alguna consulta especial o deseas realizar un pedido personalizado para eventos? Nuestro equipo está para atenderte.</p>
+
+                <div class="contact-info-grid">
+                    <div class="contact-card">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <h4>Ubicación</h4>
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">Santo Domingo, Rep. Dom.</p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fa-solid fa-phone"></i>
+                        <h4>Teléfono / WhatsApp</h4>
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">+1 (809) 555-0192</p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fa-solid fa-clock"></i>
+                        <h4>Horario</h4>
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">Lun - Dom: 10:00 AM - 9:00 PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Drawer / Sidebar -->
+    <div class="overlay" id="overlay" onclick="toggleCart()"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>Tu Carrito de Pedidos</h3>
+            <button class="close-cart" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-body" id="cartItems">
+            <p style="text-align: center; color: #777; margin-top: 2rem;">Tu carrito está vacío.</p>
+        </div>
+        <div class="cart-footer-section" id="cartFooter" style="display: none;">
+            <div class="total-row">
+                <span>Total a Pagar:</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <form class="checkout-form" id="checkoutForm" onsubmit="finalizeOrder(event)">
+                <input type="text" id="clientName" placeholder="Tu Nombre Completo" required>
+                <input type="tel" id="clientPhone" placeholder="Teléfono de Contacto" required>
+                <textarea id="clientAddress" placeholder="Dirección exacta de entrega (Calle, Número, Sector)" rows="2" required></textarea>
+                <button type="submit" class="btn-checkout">Confirmar Pedido</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Sweet Bites. Todos los derechos reservados. | Alta Repostería Artesanal.</p>
+    </footer>
+</body>
+</html>
